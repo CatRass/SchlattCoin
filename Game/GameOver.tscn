@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Game/GameOver.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 354.226
+margin_top = 140.183
+margin_right = 696.226
+margin_bottom = 200.183
+custom_fonts/font = ExtResource( 1 )
+text = "Game Over :<"
+__meta__ = {
+"_edit_use_anchors_": false
+}

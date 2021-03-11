@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Title Screen/LogoScreen.gd" type="Script" id=1]
+[ext_resource path="res://Title Screen/Chonk Gang.png" type="Texture" id=2]
+[ext_resource path="res://background.png" type="Texture" id=3]
+[ext_resource path="res://title_song.wav" type="AudioStream" id=4]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("FadeIn/FadeScreen:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2.8, 4.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("FadeIn/FadeScreen:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2.8, 4.2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("FadeIn/FadeScreen:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2.8, 4.2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("FadeIn/FadeScreen:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2.8, 4.2 )
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.50745
+margin_right = 1.50745
+theme = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 640.664, 379.569 )
+scale = Vector2( 5.8072, 2.82221 )
+texture = ExtResource( 3 )
+
+[node name="Chonk Gang" type="Sprite" parent="."]
+position = Vector2( 585.583, 365.989 )
+texture = ExtResource( 2 )
+offset = Vector2( 310.173, 0.331055 )
+
+[node name="Title" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+pitch_scale = 0.8
+
+[node name="SongTimer" type="Timer" parent="Title"]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="FadeIn" type="AnimationPlayer" parent="."]
+autoplay = "Fade"
+anims/Fade = SubResource( 2 )
+
+[node name="FadeScreen" type="ColorRect" parent="FadeIn"]
+margin_left = -88.0
+margin_top = -52.0
+margin_right = 1328.0
+margin_bottom = 790.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Title/SongTimer" to="." method="_on_SongTimer_timeout"]

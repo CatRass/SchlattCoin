@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/balances.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Game/InvestmentsWindow.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 2 )
+
+[node name="InvestmentsWindow" type="WindowDialog"]
+visible = true
+margin_left = 319.17
+margin_top = 642.737
+margin_right = 789.17
+margin_bottom = 897.737
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close Button" type="Button" parent="."]
+margin_left = 16.7731
+margin_top = 195.755
+margin_right = 129.773
+margin_bottom = 244.755
+custom_fonts/font = ExtResource( 1 )
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Unavailable" type="Label" parent="."]
+margin_left = 21.5674
+margin_top = 29.0567
+margin_right = 447.567
+margin_bottom = 182.057
+custom_fonts/font = SubResource( 1 )
+text = "Currently, investments are unavailable. Please check back when you are eligible for investments"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Test" type="Label" parent="."]
+margin_left = 33.785
+margin_top = 32.1762
+margin_right = 181.785
+margin_bottom = 75.1762
+custom_fonts/font = ExtResource( 1 )
+text = "Yes yes "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Close Button" to="." method="_on_Close_Button_pressed"]

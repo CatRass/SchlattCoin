@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/letsgetthisschlattcoin.wav-08bd033e6a400a9f8aa306ae1f9b0436.sample"
+
+[deps]
+
+source_file="res://Game/letsgetthisschlattcoin.wav"
+dest_files=[ "res://.import/letsgetthisschlattcoin.wav-08bd033e6a400a9f8aa306ae1f9b0436.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
