@@ -217,9 +217,6 @@ scale = Vector2( 0.224601, 0.352361 )
 color = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
 polygon = PoolVector2Array( 0, 0, 600, 0, 600, 200, 0, 200 )
 
-[node name="OldBalanceTimer" type="Timer" parent="Buy"]
-wait_time = 2.0
-
 [node name="Sell" type="Button" parent="."]
 margin_left = 965.718
 margin_top = 269.76
@@ -294,9 +291,9 @@ wait_time = 5.0
 autostart = true
 
 [node name="LastBought" type="Label" parent="."]
-margin_left = 128.103
+margin_left = 126.345
 margin_top = 480.367
-margin_right = 410.103
+margin_right = 408.345
 margin_bottom = 523.367
 custom_fonts/font = ExtResource( 8 )
 text = "Last bought at "
@@ -346,7 +343,7 @@ polygon = PoolVector2Array( 0, 0, 600, 0, 600, 200, 0, 200 )
 
 [node name="Background" type="Polygon2D" parent="Graph"]
 show_behind_parent = true
-position = Vector2( -1.54972e-06, 0 )
+position = Vector2( -1.54972e-06, -1.75809 )
 scale = Vector2( 1.00227, 1.04707 )
 color = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
 polygon = PoolVector2Array( 0, 0, 600, 0, 600, 200, 0, 200 )
@@ -473,7 +470,6 @@ __meta__ = {
 [connection signal="timeout" from="Settings/MusicVolume/MusicTimer" to="Settings/MusicVolume" method="_on_MusicTimer_timeout"]
 [connection signal="pressed" from="Back" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Buy" to="." method="_on_Buy_pressed"]
-[connection signal="timeout" from="Buy/OldBalanceTimer" to="." method="_on_OldBalanceTimer_timeout"]
 [connection signal="pressed" from="Sell" to="." method="_on_Sell_pressed"]
 [connection signal="timeout" from="Wallet/WalletTimer" to="." method="_on_WalletTimer_timeout"]
 [connection signal="timeout" from="PriceLabel/PriceGenerator" to="." method="_on_PriceGenerator_timeout"]

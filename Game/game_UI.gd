@@ -14,6 +14,7 @@ var noise_progress : float = 0.0
 var oldbalance = 10
 var investor = "false"
 
+
 #Onready Variables
 onready var pricelabel : Label = $PriceLabel 
 onready var boughtpricelabel : Label = $LastBought
@@ -23,7 +24,7 @@ onready var coinlabel : Label = $CoinLabel
 onready var graph : Line2D = $Graph
 onready var music : AudioStreamPlayer = $AudioStreamPlayer
 onready var investmentCounter : Label = $InvestmentCounter
-onready var oldbalancetimer : Timer = $Buy/OldBalanceTimer
+#onready var oldbalancetimer : Timer = $Buy/OldBalanceTimer
 
 var noise_modify : float = (balance * (FACTOR / 2.0 ))
 var noise_modifyCoin : float = (oldbalance * (FACTOR / 2.0))
@@ -69,21 +70,33 @@ func _on_Buy_pressed():
 	buy()
 
 func buy():
+#		-	Old code that didn't work for some reason	-
+#	if balance < price:
+#		oldbalance = oldbalance
+#	elif balance > price:
+#		oldbalancetimer.start()
+#		if oldbalancetimer.time_left > 0:
+#			coin = coin + 1
+#		else:
+#			oldbalance = balance
+#			balance = balance - price
+#	print("Bought at: ", price)
+#	print("Old balance is:", oldbalance)
+#	boughtpricelabel.bought_price(price)
+	
 	if balance < price:
 		oldbalance = oldbalance
-	else:
-		oldbalancetimer.start()
-		if oldbalancetimer.active():
-			coin = coin + 1
-		else:
-			oldbalance = balance
-			balance = balance - price
+		coin = coin
+		balance = balance
+	elif balance > price:
+		oldbalance = balance
+		balance = balance-price
+		coin = coin+1
 	print("Bought at: ", price)
 	print("Old balance is:", oldbalance)
 	boughtpricelabel.bought_price(price)
 
-func _on_OldBalanceTimer_timeout():
-	oldbalancetimer.stop()
+
 
 #Selling
 func _on_Sell_pressed():
@@ -137,9 +150,13 @@ func save_level():
 	save_file.store_line(str(price))
 	save_file.store_line(str(noise_progress))
 	save_file.store_line(str(noise.seed))
-	save_file.store_line(str(graph.graphColour))
 	save_file.store_line(str(investor))
+	
+	save_file.open_encrypted_with_pass("user://preferences.stonks", File.WRITE, OS.get_unique_id())
 	save_file.store_line(str(music.musicPreference))
+	save_file.store_line(str(graph.graphColour))
+
+	
 	print("Saved!")
 	save_file.close()
 
@@ -154,9 +171,12 @@ func load_level():
 	price = float(save_file.get_line())
 	noise_progress = float(save_file.get_line())
 	noise.seed = float(save_file.get_line())
-	graph.graphColour = str(save_file.get_line())
 	investor = str(save_file.get_line())
+	
+	save_file.open_encrypted_with_pass("user://preferences.stonks", File.READ, OS.get_unique_id())
 	music.musicPreference = str(save_file.get_line())
+	graph.graphColour = str(save_file.get_line())
+	
 	print("Loaded")
 	save_file.close()
 
