@@ -14,7 +14,6 @@ var noise_progress : float = 0.0
 var oldbalance = 10
 var investor = "false"
 
-
 #Onready Variables
 onready var pricelabel : Label = $PriceLabel 
 onready var boughtpricelabel : Label = $LastBought
@@ -28,6 +27,7 @@ onready var investmentCounter : Label = $InvestmentCounter
 
 var noise_modify : float = (balance * (FACTOR / 2.0 ))
 var noise_modifyCoin : float = (oldbalance * (FACTOR / 2.0))
+
 func _ready():
 	randomize()
 	noise = OpenSimplexNoise.new()
@@ -59,16 +59,13 @@ func update_price():
 	graph.add_value(price)
 	graph.create_graph()
 
-func _on_Timer_timeout():
-	generate_stock_price()
-
-func _on_Button_pressed():
+#Button
+func _on_BackButton_pressed():
 	get_tree().change_scene("res://Title Screen/title_screen.tscn")
 
 #Buying
 func _on_Buy_pressed():
 	buy()
-
 func buy():
 #		-	Old code that didn't work for some reason	-
 #	if balance < price:
@@ -96,12 +93,9 @@ func buy():
 	print("Old balance is:", oldbalance)
 	boughtpricelabel.bought_price(price)
 
-
-
 #Selling
 func _on_Sell_pressed():
 	sell()
-
 func sell():
 	if coin > 0:
 		balance = balance + coin*price
@@ -119,14 +113,10 @@ func investmentBegin():
 
 #Wallet Updating
 func _on_WalletTimer_timeout():
-	investmentCounter.InvestmentCounter(balance)
-	investmentCounter.Checker(investor)
-	walletlabel.update_wallet(balance)
-	coinlabel.update_coin(coin)
-	if balance < 0.01:
-		pass
-	if balance <= -1:
-		get_tree().change_scene("res://Game/Cheated.tscn")
+	investmentCounter.InvestmentCounter(balance)	#Updates Investment Goal
+	investmentCounter.Checker(investor) 			#Updates Investment
+	walletlabel.update_wallet(balance)				#Updates the balance
+	coinlabel.update_coin(coin)						#Updates the coins
 	investmentBegin()
 	
 	#Investment
@@ -155,7 +145,6 @@ func save_level():
 	save_file.open_encrypted_with_pass("user://preferences.stonks", File.WRITE, OS.get_unique_id())
 	save_file.store_line(str(music.musicPreference))
 	save_file.store_line(str(graph.graphColour))
-
 	
 	print("Saved!")
 	save_file.close()
@@ -187,5 +176,8 @@ func _on_Load_pressed():
 	load_level()
 	graph.points.empty()
 	update_price()
+
+
+
 
 

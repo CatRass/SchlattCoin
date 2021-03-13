@@ -468,7 +468,7 @@ __meta__ = {
 [connection signal="pressed" from="Settings/MuteMusic" to="Settings/MuteMusic" method="_on_MuteMusic_pressed"]
 [connection signal="pressed" from="Settings/MuteMusic" to="AudioStreamPlayer" method="_on_MuteMusic_pressed"]
 [connection signal="timeout" from="Settings/MusicVolume/MusicTimer" to="Settings/MusicVolume" method="_on_MusicTimer_timeout"]
-[connection signal="pressed" from="Back" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="Buy" to="." method="_on_Buy_pressed"]
 [connection signal="pressed" from="Sell" to="." method="_on_Sell_pressed"]
 [connection signal="timeout" from="Wallet/WalletTimer" to="." method="_on_WalletTimer_timeout"]
