@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sell.png-f4a8dc0b64bdd8d01ac66ce58d9e3cc0.stex"
+path="res://.import/BootSplash.png-d3e01bdce614218e74ee950e90083cf2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Sprites/Sell.png"
-dest_files=[ "res://.import/Sell.png-f4a8dc0b64bdd8d01ac66ce58d9e3cc0.stex" ]
+source_file="res://Title Screen/Title Screen Assets/BootSplash.png"
+dest_files=[ "res://.import/BootSplash.png-d3e01bdce614218e74ee950e90083cf2.stex" ]
 
 [params]
 

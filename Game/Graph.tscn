@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Game/Graph.gd" type="Script" id=1]
+[ext_resource path="res://Game/Game Scripts/Graph.gd" type="Script" id=1]
+
 
 [node name="Graph" type="Line2D"]
 width = 2.0

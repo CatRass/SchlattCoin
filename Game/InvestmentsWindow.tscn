@@ -1,8 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/balances.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Game/InvestmentsWindow.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Game/Game Scripts/InvestmentsWindow.gd" type="Script" id=3]
+
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 28

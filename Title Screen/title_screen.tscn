@@ -1,19 +1,19 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Title Screen/title.png" type="Texture" id=1]
+[ext_resource path="res://Title Screen/Title Screen Assets/title.png" type="Texture" id=1]
 [ext_resource path="res://Title Screen/Buttons/ContinueButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Title Screen/Buttons/OptionsButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Title Screen/Buttons/NewGameButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Title Screen/title_screen.gd" type="Script" id=5]
+[ext_resource path="res://Title Screen/Title Screen Scripts/title_screen.gd" type="Script" id=5]
 [ext_resource path="res://Title Screen/Buttons/ExitButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Game/Sprites/rsz_coin.png" type="Texture" id=7]
+[ext_resource path="res://Title Screen/Title Screen Assets/spr_coin.png" type="Texture" id=7]
 [ext_resource path="res://Fonts/balances.tres" type="DynamicFont" id=8]
-[ext_resource path="res://Title Screen/Minigame.gd" type="Script" id=9]
-[ext_resource path="res://Title Screen/ColorRect.gd" type="Script" id=10]
+[ext_resource path="res://Title Screen/Title Screen Scripts/Minigame.gd" type="Script" id=9]
+[ext_resource path="res://Title Screen/Title Screen Scripts/ColorRect.gd" type="Script" id=10]
 [ext_resource path="res://Title Screen/Buttons/ChangeLog.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Fonts/windows.tres" type="DynamicFont" id=12]
-[ext_resource path="res://Montserrat-ExtraBold.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://Title Screen/ChangelogScroll.gd" type="Script" id=14]
+[ext_resource path="res://Fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Title Screen/Title Screen Scripts/ChangelogScroll.gd" type="Script" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeInMenu"
@@ -149,9 +149,9 @@ margin_bottom = 250.0
 
 [node name="ContinueButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
 visible = false
-margin_top = 230.0
+margin_top = 190.0
 margin_right = 538.0
-margin_bottom = 290.0
+margin_bottom = 250.0
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_top = 230.0

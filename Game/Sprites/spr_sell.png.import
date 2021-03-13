@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/label_options.png-7be0abf4f57ecedc6b5d16b031242f3a.stex"
+path="res://.import/spr_sell.png-996ba351b999bfe5143aeb6365feabeb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Sprites/Menu/label_options.png"
-dest_files=[ "res://.import/label_options.png-7be0abf4f57ecedc6b5d16b031242f3a.stex" ]
+source_file="res://Game/Sprites/spr_sell.png"
+dest_files=[ "res://.import/spr_sell.png-996ba351b999bfe5143aeb6365feabeb.stex" ]
 
 [params]
 

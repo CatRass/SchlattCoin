@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BootSplash.png-387a6805e0444ee48a86299f1b763603.stex"
+path="res://.import/Chonk Gang.png-e2d74127aef55ee3fe45dde80816ae99.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BootSplash.png"
-dest_files=[ "res://.import/BootSplash.png-387a6805e0444ee48a86299f1b763603.stex" ]
+source_file="res://Title Screen/Title Screen Assets/Chonk Gang.png"
+dest_files=[ "res://.import/Chonk Gang.png-e2d74127aef55ee3fe45dde80816ae99.stex" ]
 
 [params]
 

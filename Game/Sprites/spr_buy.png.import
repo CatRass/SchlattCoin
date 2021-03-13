@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rsz_coin.png-fbb5192baa0c875be7008fe966cbb60a.stex"
+path="res://.import/spr_buy.png-2fe818a71b65b8aeda24cfb14d31203a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Sprites/rsz_coin.png"
-dest_files=[ "res://.import/rsz_coin.png-fbb5192baa0c875be7008fe966cbb60a.stex" ]
+source_file="res://Game/Sprites/spr_buy.png"
+dest_files=[ "res://.import/spr_buy.png-2fe818a71b65b8aeda24cfb14d31203a.stex" ]
 
 [params]
 

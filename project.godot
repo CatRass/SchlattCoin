@@ -18,9 +18,9 @@ _global_script_class_icons={
 config/name="SchlattCoin"
 run/main_scene="res://Title Screen/LogoScreen.tscn"
 config/use_custom_user_dir=true
-boot_splash/image="res://BootSplash.png"
+boot_splash/image="res://Title Screen/Title Screen Assets/BootSplash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://Game/Sprites/rsz_coin.png"
+config/icon="res://Game/Sprites/spr_coin_label.png"
 config/windows_native_icon="res://icon.ico"
 
 [display]

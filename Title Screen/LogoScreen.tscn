@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Title Screen/LogoScreen.gd" type="Script" id=1]
-[ext_resource path="res://Title Screen/Chonk Gang.png" type="Texture" id=2]
-[ext_resource path="res://background.png" type="Texture" id=3]
-[ext_resource path="res://title_song.wav" type="AudioStream" id=4]
+[ext_resource path="res://Title Screen/Title Screen Scripts/LogoScreen.gd" type="Script" id=1]
+[ext_resource path="res://Title Screen/Title Screen Assets/Chonk Gang.png" type="Texture" id=2]
+[ext_resource path="res://Title Screen/Title Screen Assets/background.png" type="Texture" id=3]
+[ext_resource path="res://Title Screen/Title Screen Assets/Music and Sounds/title_song.wav" type="AudioStream" id=4]
 
 [sub_resource type="Theme" id=1]
 
