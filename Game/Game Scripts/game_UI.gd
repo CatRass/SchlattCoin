@@ -14,6 +14,7 @@ var noise_progress : float = 0.0
 var oldbalance = 10
 var investor = "false"
 
+
 #Onready Variables
 onready var pricelabel : Label = $PriceLabel 
 onready var boughtpricelabel : Label = $LastBought
@@ -23,12 +24,17 @@ onready var coinlabel : Label = $CoinLabel
 onready var graph : Line2D = $Graph
 onready var music : AudioStreamPlayer = $AudioStreamPlayer
 onready var investmentCounter : Label = $InvestmentCounter
+onready var console : Node = $CommandHandler
 #onready var oldbalancetimer : Timer = $Buy/OldBalanceTimer
 
 var noise_modify : float = (balance * (FACTOR / 2.0 ))
 var noise_modifyCoin : float = (oldbalance * (FACTOR / 2.0))
 
 func _ready():
+	if Global.console_load == "0":
+		console.add_commands()
+	else:
+		pass
 	randomize()
 	noise = OpenSimplexNoise.new()
 	noise.seed = randi()
@@ -39,7 +45,8 @@ func _ready():
 	# --------------------------------
 	load_level()
 	update_price()
-	
+
+
 func _on_PriceGenerator_timeout():
 	generate_stock_price()
 
@@ -61,6 +68,8 @@ func update_price():
 
 #Button
 func _on_BackButton_pressed():
+# warning-ignore:return_value_discarded
+	Global.console_load = "1"
 	get_tree().change_scene("res://Title Screen/title_screen.tscn")
 
 #Buying
@@ -87,7 +96,7 @@ func buy():
 		balance = balance
 	elif balance > price:
 		oldbalance = balance
-		balance = balance-price
+		balance = balance - price
 		coin = coin+1
 	print("Bought at: ", price)
 	print("Old balance is:", oldbalance)
@@ -98,7 +107,7 @@ func _on_Sell_pressed():
 	sell()
 func sell():
 	if coin > 0:
-		balance = balance + coin*price
+		balance = balance + coin * price
 		coin = coin-1
 	else:
 		pass
@@ -148,7 +157,6 @@ func save_level():
 	
 	print("Saved!")
 	save_file.close()
-
 #Loading
 func load_level():
 	var save_file = File.new()
@@ -159,6 +167,7 @@ func load_level():
 	coin = int(save_file.get_line())
 	price = float(save_file.get_line())
 	noise_progress = float(save_file.get_line())
+# warning-ignore:narrowing_conversion
 	noise.seed = float(save_file.get_line())
 	investor = str(save_file.get_line())
 	
@@ -174,10 +183,6 @@ func _on_Save_pressed():
 
 func _on_Load_pressed():
 	load_level()
+# warning-ignore:return_value_discarded
 	graph.points.empty()
 	update_price()
-
-
-
-
-

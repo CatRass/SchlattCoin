@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Game/Sprites/spr_coin_label.png" type="Texture" id=1]
 [ext_resource path="res://Game/Graph.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Game/Game Scripts/LastBought.gd" type="Script" id=20]
 [ext_resource path="res://Game/Game Scripts/LastSold.gd" type="Script" id=21]
 [ext_resource path="res://Game/Game Scripts/MusicVolumeSlider.gd" type="Script" id=22]
+[ext_resource path="res://Game/Game Scripts/CommandHandler.gd" type="Script" id=23]
 
 [sub_resource type="Theme" id=1]
 
@@ -454,6 +455,9 @@ text = "Investments"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CommandHandler" type="Node" parent="."]
+script = ExtResource( 23 )
 [connection signal="pressed" from="Settings/GreenGraph" to="Graph" method="_on_GreenGraph_pressed"]
 [connection signal="pressed" from="Settings/Red Graph" to="Graph" method="_on_Red_Graph_pressed"]
 [connection signal="pressed" from="Settings/Orange Graph" to="Graph" method="_on_Orange_Graph_pressed"]
@@ -461,11 +465,11 @@ __meta__ = {
 [connection signal="pressed" from="Settings/Yellow Graph" to="Graph" method="_on_Yellow_Graph_pressed"]
 [connection signal="pressed" from="Settings/Blue Graph" to="Graph" method="_on_Blue_Graph_pressed"]
 [connection signal="pressed" from="Settings/Pink Graph" to="Graph" method="_on_Pink_Graph_pressed"]
-[connection signal="pressed" from="Settings/UnmuteMusic" to="Settings/UnmuteMusic" method="_on_UnmuteMusic_pressed"]
 [connection signal="pressed" from="Settings/UnmuteMusic" to="Settings/MuteMusic" method="_on_UnmuteMusic_pressed"]
+[connection signal="pressed" from="Settings/UnmuteMusic" to="Settings/UnmuteMusic" method="_on_UnmuteMusic_pressed"]
 [connection signal="pressed" from="Settings/UnmuteMusic" to="AudioStreamPlayer" method="_on_UnmuteMusic_pressed"]
-[connection signal="pressed" from="Settings/MuteMusic" to="Settings/UnmuteMusic" method="_on_MuteMusic_pressed"]
 [connection signal="pressed" from="Settings/MuteMusic" to="Settings/MuteMusic" method="_on_MuteMusic_pressed"]
+[connection signal="pressed" from="Settings/MuteMusic" to="Settings/UnmuteMusic" method="_on_MuteMusic_pressed"]
 [connection signal="pressed" from="Settings/MuteMusic" to="AudioStreamPlayer" method="_on_MuteMusic_pressed"]
 [connection signal="timeout" from="Settings/MusicVolume/MusicTimer" to="Settings/MusicVolume" method="_on_MusicTimer_timeout"]
 [connection signal="pressed" from="Back" to="." method="_on_BackButton_pressed"]

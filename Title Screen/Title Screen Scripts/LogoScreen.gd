@@ -1,7 +1,7 @@
 extends Control
 
-
 func _ready():
+	#CommandHandler.add_commands()
 	print("Made by Chonk Gang Games Studio")
 	print("-------------------------------")
 
