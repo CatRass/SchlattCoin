@@ -76,31 +76,17 @@ func _on_BackButton_pressed():
 func _on_Buy_pressed():
 	buy()
 func buy():
-#		-	Old code that didn't work for some reason	-
-#	if balance < price:
-#		oldbalance = oldbalance
-#	elif balance > price:
-#		oldbalancetimer.start()
-#		if oldbalancetimer.time_left > 0:
-#			coin = coin + 1
-#		else:
-#			oldbalance = balance
-#			balance = balance - price
-#	print("Bought at: ", price)
-#	print("Old balance is:", oldbalance)
-#	boughtpricelabel.bought_price(price)
-	
 	if balance < price:
 		oldbalance = oldbalance
 		coin = coin
 		balance = balance
 	elif balance > price:
+		print("Bought at: ", price)
+		print("Old balance is:", oldbalance)
+		boughtpricelabel.bought_price(price)
 		oldbalance = balance
 		balance = balance - price
 		coin = coin+1
-	print("Bought at: ", price)
-	print("Old balance is:", oldbalance)
-	boughtpricelabel.bought_price(price)
 
 #Selling
 func _on_Sell_pressed():
@@ -109,11 +95,11 @@ func sell():
 	if coin > 0:
 		balance = balance + coin * price
 		coin = coin-1
+		print("Sold at: ", price)
+		oldbalance = balance
+		soldpricelabel.sold_price(price)
 	else:
 		pass
-	print("Sold at: ", price)
-	oldbalance = balance
-	soldpricelabel.sold_price(price)
 
 #Investment Checker
 func investmentBegin():
@@ -153,7 +139,11 @@ func save_level():
 	
 	save_file.open_encrypted_with_pass("user://preferences.stonks", File.WRITE, OS.get_unique_id())
 	save_file.store_line(str(music.musicPreference))
-	save_file.store_line(str(graph.graphColour))
+	
+#	save_file.open_encrypted_with_pass("user://transactions.stonks", File.WRITE, OS.get_unique_id())
+#	save_file.store_line(float(soldpricelabel.soldPrice))
+#	save_file.store_line(float(boughtpricelabel.boughtPrice))
+	
 	
 	print("Saved!")
 	save_file.close()
@@ -173,7 +163,10 @@ func load_level():
 	
 	save_file.open_encrypted_with_pass("user://preferences.stonks", File.READ, OS.get_unique_id())
 	music.musicPreference = str(save_file.get_line())
-	graph.graphColour = str(save_file.get_line())
+	
+#	save_file.open_encrypted_with_pass("user://preferences.stonks", File.READ, OS.get_unique_id())
+#	soldpricelabel.soldPrice = float(save_file.get_line())
+#	boughtpricelabel.boughtPrice = float(save_file.get_line())
 	
 	print("Loaded")
 	save_file.close()
@@ -181,8 +174,3 @@ func load_level():
 func _on_Save_pressed():
 	save_level()
 
-func _on_Load_pressed():
-	load_level()
-# warning-ignore:return_value_discarded
-	graph.points.empty()
-	update_price()

@@ -1,6 +1,5 @@
 extends Node
 
-var coin : int
 
 #Commands 
 func print_hello(name = ''):
@@ -10,7 +9,7 @@ func money_give(money = ""):
 	get_parent().balance = money
 #Coin Command
 func coin_give(coin = ""):
-	get_parent().coins = coin
+	get_parent().coin = coin
 #Investor Command
 func investor_give(trueFalse = ''):
 	if trueFalse == "true":
